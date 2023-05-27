@@ -1,6 +1,6 @@
 name: Build image
 run-name: ${{ github.actor }} is creating now linux image
-on: [push]
+on: []
 jobs:
   Build:
     runs-on: ubuntu-latest
