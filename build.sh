@@ -2,7 +2,7 @@
 
 # Create nodejs library directory if not exists
 NODE_LIB_DIR='buildroot-v86/board/v86/rootfs_overlay/usr/local/lib/nodejs'
-if [[ ! -d $NODE_LIB_DIR ]]
+if [ ! -d $NODE_LIB_DIR ]
 then
     mkdir -p $NODE_LIB_DIR
     cd $NODE_LIB_DIR
