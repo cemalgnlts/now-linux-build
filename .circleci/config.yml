@@ -8,7 +8,7 @@ jobs:
       - checkout
 
       - run:
-          name: Install Docker Compose
+          name: "Install Docker Compose"
           environment:
             COMPOSE_VERSION: "1.29.2"
           command: |
@@ -18,7 +18,8 @@ jobs:
 
       - run:
           name: "Start Building"
-          command: "./build.sh"
+          command: |
+            ./build.sh
       
       - store_artifacts:
           path: dist/linux.iso
