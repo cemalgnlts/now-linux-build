@@ -8,15 +8,10 @@ echo 0 > /proc/sys/kernel/printk
 PS1='\W# '
 HOME='/root/'
 
+unset HISTFILE
+
 echo
 echo "Now - Ready"
 echo
-
-# for i in `seq 5`
-# do
-#     time node --version
-# done
-
-unset HISTFILE
 
 cd ~
