@@ -1,9 +1,9 @@
 FROM rastasheep/ubuntu-sshd:18.04
 
 # Buildroot version to use
-ARG BUILD_ROOT_RELEASE='2021.02-rc2'
+ARG BUILD_ROOT_RELEASE="2021.02-rc2"
 # Root password for SSH
-ARG ROOT_PASSWORD='now'
+ARG ROOT_PASSWORD="now"
 
 # Copy v86 buildroot board config into image.
 # NOTE: if you want to override this later to play with
@@ -48,4 +48,4 @@ ENV LANG='C' \
 VOLUME /build
 
 WORKDIR /root/buildroot-${BUILD_ROOT_RELEASE}
-ENTRYPOINT ['/buildroot-v86/build-v86.sh']
+ENTRYPOINT ["/buildroot-v86/build-v86.sh"]
