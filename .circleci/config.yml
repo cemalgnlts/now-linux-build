@@ -1,10 +1,13 @@
 version: 2.1
 jobs:
   build-image:
-    machine:
-      image: ubuntu-2004:202010-01
-      docker_layer_caching: true
-    resource_class: large
+    # machine:
+    #   image: ubuntu-2004:202010-01
+    #   docker_layer_caching: true
+    executor:
+      name: win/default
+      size: large
+    # resource_class: large
     steps:
       - checkout
 
@@ -15,6 +18,9 @@ jobs:
       
       - store_artifacts:
           path: dist/linux.iso
+
+orbs:
+  win: circleci/windows@4.1.1
 
 workflows:
   build-workflow:
