@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - buildroot-cache-v3
+            - buildroot-cache-v4
 
       - run:
           name: "Start Building"
@@ -19,12 +19,12 @@ jobs:
       - run:
           name: "Cleaning Before Cache Creation"
           command: |
-            rm -rf buildroot-2023.02/buildroot-config
+            rm -rf buildroot-2023.02/buildroot-v86
 
       - save_cache:
-          key: buildroot-cache-v3
+          key: buildroot-cache-v4
           paths:
-            - "buildroot-config/board/rootfs_overlay/usr/local/lib/nodejs"
+            - "buildroot-v86/board/rootfs_overlay/usr/local/lib/nodejs"
             - "buildroot-2023.02"
 
       - store_artifacts:
