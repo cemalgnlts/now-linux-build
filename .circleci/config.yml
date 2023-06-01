@@ -8,10 +8,20 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+            - buildroot-cache
+
       - run:
           name: "Start Building"
           command: |
             ./build.sh
+      
+      - save_cache:
+          key: buildroot-cache
+          paths:
+            - "buildroot-v86/board/v86/rootfs_overlay/usr/local/lib/nodejs"
+            - "buildroot-2023.02"
       
       - store_artifacts:
           path: dist/linux.iso
