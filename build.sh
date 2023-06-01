@@ -4,7 +4,7 @@ NODEJS_VERSION='v16.20.0'
 BUILD_ROOT_RELEASE='2023.02'
 
 # Create nodejs library directory if not exists
-NODE_LIB_DIR='buildroot-v86/board/rootfs_overlay/usr/local/lib/nodejs'
+NODE_LIB_DIR='buildroot-now/board/rootfs_overlay/usr/local/lib/nodejs'
 if [ ! -d $NODE_LIB_DIR ]
 then
     echo "[Nodejs] downloading..."
@@ -39,12 +39,12 @@ else
     echo "[Buildroot] already exists."
 fi
 
-echo "./buildroot-v86 copying to ./buildroot-$BUILD_ROOT_RELEASE"
+echo "./buildroot-custom copying to ./buildroot-$BUILD_ROOT_RELEASE"
 
-cp -fr ./buildroot-v86 ./buildroot-$BUILD_ROOT_RELEASE/
+cp -fr ./buildroot-custom ./buildroot-$BUILD_ROOT_RELEASE/
 cd buildroot-$BUILD_ROOT_RELEASE
 
 # Build our defconfig.
-make BR2_EXTERNAL=buildroot-v86 v86_defconfig && make
+make BR2_EXTERNAL=buildroot-custom now_defconfig && make
 
 echo "See ./dist for built ISO"

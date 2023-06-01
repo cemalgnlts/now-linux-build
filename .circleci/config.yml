@@ -19,12 +19,12 @@ jobs:
       - run:
           name: "Cleaning Before Cache Creation"
           command: |
-            rm -rf buildroot-2023.02/buildroot-v86
+            rm -rf buildroot-2023.02/buildroot-now
 
       - save_cache:
           key: buildroot-cache-v4
           paths:
-            - "buildroot-v86/board/rootfs_overlay/usr/local/lib/nodejs"
+            - "buildroot-now/board/rootfs_overlay/usr/local/lib/nodejs"
             - "buildroot-2023.02"
 
       - store_artifacts:
