@@ -15,18 +15,18 @@ jobs:
           name: "Start Building"
           command: |
             ./build.sh
-        
+
       - run:
           name: "Cleaning Before Cache Creation"
           command: |
             rm -rf buildroot-2023.02/buildroot-config
-      
+
       - save_cache:
           key: buildroot-cache-v2
           paths:
             - "buildroot-config/board/rootfs_overlay/usr/local/lib/nodejs"
             - "buildroot-2023.02"
-      
+
       - store_artifacts:
           path: dist/linux.iso
 
