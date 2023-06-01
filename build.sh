@@ -45,6 +45,6 @@ cp -fr ./buildroot-config ./buildroot-$BUILD_ROOT_RELEASE/
 cd buildroot-$BUILD_ROOT_RELEASE
 
 # Build our defconfig.
-make BR2_EXTERNAL=buildroot-config defconfig && make
+make BR2_EXTERNAL=buildroot-v86 defconfig && make
 
 echo "See ./dist for built ISO"
