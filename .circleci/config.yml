@@ -16,6 +16,11 @@ jobs:
           name: "Start Building"
           command: |
             ./build.sh
+          
+      - run:
+        name: "Cleaning Before Cache Creation"
+        command: |
+          rm -rf buildroot-2023.02/buildroot-config
       
       - save_cache:
           key: buildroot-cache-v1
