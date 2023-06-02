@@ -12,7 +12,7 @@ then
     cd "$NODE_LIB_DIR"
 
     # Download nodejs
-    wget -q "https://unofficial-builds.nodejs.org/download/release/v16.20.0/node-$NODEJS_VERSION-linux-x86.tar.xz"
+    wget -q "https://unofficial-builds.nodejs.org/download/release/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x86.tar.xz"
 
     # Unzip the binary archive
     tar -axf "node-$NODEJS_VERSION-linux-x86.tar.xz"
