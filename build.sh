@@ -26,6 +26,7 @@ else
     echo '[Nodejs] already exists.'
 fi
 
+# Install buildroot.
 if [ ! -d "./buildroot-$BUILD_ROOT_RELEASE" ]
 then
     echo '[Buildroot] downloading...'

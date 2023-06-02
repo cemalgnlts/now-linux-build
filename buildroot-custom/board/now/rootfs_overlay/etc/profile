@@ -4,12 +4,11 @@
 export PATH=/usr/local/lib/nodejs/bin:$PATH
 
 mount -a
-#mount host9p -t 9p /root
 
 echo 0 > /proc/sys/kernel/printk
 echo 3 > /proc/sys/vm/drop_caches
 
-PS1='\W# '
+PS1='\W$ '
 HOME='/root/'
 
 unset HISTFILE
