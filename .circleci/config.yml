@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - buildroot-cache-v5
+            - buildroot-cache-v6
 
       - run:
           name: "Start Building"
@@ -22,9 +22,8 @@ jobs:
             rm -rf buildroot-2023.02/buildroot-now
 
       - save_cache:
-          key: buildroot-cache-v5
+          key: buildroot-cache-v6
           paths:
-            - "buildroot-now/board/rootfs_overlay/usr/local/lib/nodejs"
             - "buildroot-2023.02"
 
       - store_artifacts:
