@@ -45,5 +45,3 @@ cd buildroot-$BUILD_ROOT_RELEASE
 
 # Build our defconfig.
 make BR2_EXTERNAL=buildroot-custom now_defconfig && make
-
-echo "See ./dist for built ISO"

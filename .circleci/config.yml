@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - buildroot-cache-v7
+            - buildroot-cache-v8
 
       - run:
           name: "Start Building"
@@ -22,12 +22,13 @@ jobs:
             rm -rf buildroot-2023.02/buildroot-custom
 
       - save_cache:
-          key: buildroot-cache-v7
+          key: buildroot-cache-v8
           paths:
             - "buildroot-2023.02"
 
       - store_artifacts:
           path: buildroot-2023.02/output/images/rootfs.iso9660
+          destination: linux.iso
 
 workflows:
   build-workflow:
