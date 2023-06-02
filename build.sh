@@ -40,8 +40,8 @@ fi
 
 echo "./buildroot-custom copying to ./buildroot-$BUILD_ROOT_RELEASE"
 
-cp -fr 'buildroot-custom/' "buildroot-$BUILD_ROOT_RELEASE/"
-cd "buildroot-$BUILD_ROOT_RELEASE"
+cp -fr ./buildroot-custom ./buildroot-$BUILD_ROOT_RELEASE/
+cd buildroot-$BUILD_ROOT_RELEASE
 
 # Build our defconfig.
 make BR2_EXTERNAL=buildroot-custom now_defconfig && make

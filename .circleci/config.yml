@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - buildroot-cache-v6
+            - buildroot-cache-v7
 
       - run:
           name: "Start Building"
@@ -19,10 +19,10 @@ jobs:
       - run:
           name: "Cleaning Before Cache Creation"
           command: |
-            rm -rf buildroot-2023.02/buildroot-now
+            rm -rf buildroot-2023.02/buildroot-custom
 
       - save_cache:
-          key: buildroot-cache-v6
+          key: buildroot-cache-v7
           paths:
             - "buildroot-2023.02"
 

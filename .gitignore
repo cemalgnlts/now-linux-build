@@ -1,2 +1,2 @@
-buildroot-now/board/rootfs_overlay/usr/local/lib/*
+buildroot-custom/board/rootfs_overlay/usr/local/lib/*
 dist/
