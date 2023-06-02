@@ -27,7 +27,7 @@ jobs:
             - "buildroot-2023.02"
 
       - store_artifacts:
-          path: dist/linux.iso
+          path: buildroot-2023.02/output/images/rootfs.iso9660
 
 workflows:
   build-workflow:
