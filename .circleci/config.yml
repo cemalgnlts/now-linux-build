@@ -6,6 +6,10 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      
+      - run:
+          name: "Check ZSTD"
+          command: zstd --version
 
       - restore_cache:
           keys:
