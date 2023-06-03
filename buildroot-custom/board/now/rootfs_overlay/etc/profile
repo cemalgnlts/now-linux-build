@@ -1,9 +1,12 @@
 #!/bin/sh
 
-# Nodejs
-export PATH=/usr/local/lib/nodejs/bin:$PATH
-
 mount -a
+
+# Nodejs
+# export PATH=/usr/local/lib/nodejs/bin:$PATH
+ln -s /usr/local/lib/nodejs/bin/node /usr/bin/node
+ln -s /usr/local/lib/nodejs/bin/npm /usr/bin/npm
+ln -s /usr/local/lib/nodejs/bin/npx /usr/bin/npx
 
 echo 3 > /proc/sys/vm/drop_caches
 
