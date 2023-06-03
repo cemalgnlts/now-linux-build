@@ -27,20 +27,20 @@ jobs:
             - "buildroot-2023.02"
       
       - run:
-        name: "Boost nodejs and Create State"
-        command: |
-          cp 'buildroot-2023.02/output/images/rootfs.iso9660' now/linux.iso
-          cd now
-          wget 'https://github.com/copy/v86/releases/download/latest/libv86.js'
-          wget 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
-          wget 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
-          node index.js
+          name: "Boost nodejs and Create State"
+          command: |
+            cp 'buildroot-2023.02/output/images/rootfs.iso9660' now/linux.iso
+            cd now
+            wget 'https://github.com/copy/v86/releases/download/latest/libv86.js'
+            wget 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
+            wget 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
+            node index.js
 
       - run:
-        name: "Compress State File"
-        command: |
-          apt install zstd -y
-          zstd --ultra 22 linux_state.bin
+          name: "Compress State File"
+          command: |
+            apt install zstd -y
+            zstd --ultra 22 linux_state.bin
 
       - store_artifacts:
           # path: buildroot-2023.02/output/images/rootfs.iso9660
@@ -48,7 +48,7 @@ jobs:
           # destination: linux.iso
       
       - store_artifacts:
-        path: linux_state.bin.zst
+          path: linux_state.bin.zst
 
 workflows:
   build-workflow:

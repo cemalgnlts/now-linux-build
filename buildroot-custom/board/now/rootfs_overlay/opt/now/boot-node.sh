@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ITERATION=10
+ITERATION=15
 printf "[1/$ITERATION] Node initializing..."
 
 for i in `seq $ITERATION`
