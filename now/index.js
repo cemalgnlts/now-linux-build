@@ -32,7 +32,7 @@ emulator.add_listener("serial0-output-char", async function serailOutputChar(chr
         data = "";
         emulator.serial0_send('. /opt/now/boot-node.sh\n');
     } else if (isBooted && data.endsWith("root$")) {
-        const state = emulator.save_state();
+        const state = await emulator.save_state();
         await fs.promises.writeFile("./linux_state.bin", state);
         
         process.exit();

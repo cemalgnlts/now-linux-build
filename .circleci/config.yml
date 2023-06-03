@@ -7,13 +7,9 @@ jobs:
     steps:
       - checkout
       
-      - run:
-          name: "Check ZSTD"
-          command: zstd --version
-
       - restore_cache:
           keys:
-            - buildroot-cache-v10
+            - buildroot-cache-v11
 
       - run:
           name: "Start Building"
@@ -26,7 +22,7 @@ jobs:
             rm -rf buildroot-2023.02/buildroot-custom
 
       - save_cache:
-          key: buildroot-cache-v10
+          key: buildroot-cache-v11
           paths:
             - "buildroot-2023.02"
       
@@ -39,7 +35,6 @@ jobs:
             wget 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
             wget 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
             node index.js
-            ls
 
       - run:
           name: "Compress State File"
@@ -48,7 +43,6 @@ jobs:
             zstd --ultra -22 now/linux_state.bin -o now/linux_state.bin.zst
 
       - store_artifacts:
-          # path: buildroot-2023.02/output/images/rootfs.iso9660
           path: now/linux.iso
           destination: linux.iso
       
