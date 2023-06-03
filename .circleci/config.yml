@@ -35,6 +35,7 @@ jobs:
             wget 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
             wget 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
             node index.js
+            ls
 
       - run:
           name: "Compress State File"
@@ -44,11 +45,12 @@ jobs:
 
       - store_artifacts:
           # path: buildroot-2023.02/output/images/rootfs.iso9660
-          path: linux.iso
-          # destination: linux.iso
+          path: now/linux.iso
+          destination: linux.iso
       
       - store_artifacts:
-          path: linux_state.bin.zst
+          path: now/linux_state.bin.zst
+          destination: linux_state.bin.zst
 
 workflows:
   build-workflow:
