@@ -22,7 +22,7 @@ jobs:
             rm -rf buildroot-2023.02/buildroot-custom
 
       - save_cache:
-          key: - buildroot-{{ checksum "buildroot-custom/configs/now_defconfig" }}-{{ checksum "buildroot-custom/board/now/linux.config" }}
+          key: buildroot-{{ checksum "buildroot-custom/configs/now_defconfig" }}-{{ checksum "buildroot-custom/board/now/linux.config" }}
           paths:
             - "buildroot-2023.02"
 
