@@ -10,8 +10,10 @@ echo 3 > /proc/sys/vm/drop_caches
 PS1='\W$ '
 HOME='/root/'
 
+echo
 echo "|=================|"
 echo "| =  Now Ready  = |"
 echo "|=================|"
+echo
 
 cd $HOME
