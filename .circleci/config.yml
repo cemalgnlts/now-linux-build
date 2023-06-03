@@ -39,7 +39,7 @@ jobs:
       - run:
           name: "Compress State File"
           command: |
-            apt install zstd -y
+            sudo apt install zstd --allow
             zstd --ultra 22 linux_state.bin
 
       - store_artifacts:

@@ -25,6 +25,8 @@ let isBooted = false;
 emulator.add_listener("serial0-output-char", async function serailOutputChar(chr) {
     data += chr;
 
+    if(isBooted === true) process.stdout.write(chr);
+
     if (isBooted === false && data.endsWith("root$")) {
         isBooted = true;
         data = "";
