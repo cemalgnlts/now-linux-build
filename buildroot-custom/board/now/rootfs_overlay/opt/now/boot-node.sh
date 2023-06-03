@@ -1,13 +1,9 @@
 #!/bin/sh
 
 ITERATION=15
-printf "[0/$ITERATION] Node initializing..."
+echo "Node initializing..."
 
 for i in `seq $ITERATION`
 do
-    node /opt/now/hello.js > /dev/null
-
-    printf "\r[$i/$ITERATION] Node initializing..."
+    time -f "[$i/$ITERATION] - %es" node /opt/now/hello.js > /dev/null
 done
-
-echo

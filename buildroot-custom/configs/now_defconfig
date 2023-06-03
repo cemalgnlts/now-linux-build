@@ -1,4 +1,6 @@
 BR2_PACKAGE_BUSYBOX_CONFIG="$(BR2_EXTERNAL_now_PATH)/configs/buildroot.config"
+BR2_CCACHE_DIR="~/br-cache/ccache"
+BR2_DL_DIR="~/br-cache/dl"
 BR2_ARCH_HAS_MMU_MANDATORY=y
 BR2_i386=y
 BR2_ARCH_HAS_TOOLCHAIN_BUILDROOT=y
