@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - buildroot-{{ checksum "buildroot-custom/configs/now_defconfig" }}-{{ checksum "buildroot-custom/board/now/linux.config" }}
+            - buildroot-cache-v10
 
       - run:
           name: "Start Building"
@@ -22,7 +22,7 @@ jobs:
             rm -rf buildroot-2023.02/buildroot-custom
 
       - save_cache:
-          key: buildroot-{{ checksum "buildroot-custom/configs/now_defconfig" }}-{{ checksum "buildroot-custom/board/now/linux.config" }}
+          key: buildroot-cache-v10
           paths:
             - "buildroot-2023.02"
 
