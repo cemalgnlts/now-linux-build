@@ -9,7 +9,7 @@ jobs:
       
       - restore_cache:
           keys:
-            - buildroot-cache-v11
+            - buildroot-cache-v12
 
       - run:
           name: "Start Building"
@@ -22,12 +22,12 @@ jobs:
             rm -rf buildroot-2023.02/buildroot-custom
 
       - save_cache:
-          key: buildroot-cache-v11
+          key: buildroot-cache-v12
           paths:
             - "buildroot-2023.02"
       
       - run:
-          name: "Boost nodejs and Create State"
+          name: "Boost Node.js and Create State File"
           command: |
             cp 'buildroot-2023.02/output/images/rootfs.iso9660' now/linux.iso
             cd now
@@ -38,8 +38,9 @@ jobs:
 
       - run:
           name: "Compress State File"
+          when: on_success
           command: |
-            sudo apt install zstd -y --allow-downgrades
+            sudo apt install zstd --allow-change-held-packages
             zstd --ultra -22 now/linux_state.bin -o now/linux_state.bin.zst
 
       - store_artifacts:
