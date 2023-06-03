@@ -40,8 +40,8 @@ jobs:
       - run:
           name: "Compress State File"
           command: |
-            sudo apt install zstd --allow
-            zstd --ultra 22 linux_state.bin
+            sudo apt install zstd -y --allow-downgrades
+            zstd --ultra -22 now/linux_state.bin -o now/linux_state.bin.zst
 
       - store_artifacts:
           # path: buildroot-2023.02/output/images/rootfs.iso9660
