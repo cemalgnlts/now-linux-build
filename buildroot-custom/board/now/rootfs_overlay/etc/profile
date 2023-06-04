@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Nodejs
+export HISTFILE='/tmp/.ash_history'
 
 PS1='\W$ '
 HOME='/root/'
