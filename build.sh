@@ -44,8 +44,8 @@ echo "./buildroot-custom copying to ./buildroot-$BUILD_ROOT_RELEASE"
 cp -fr ./buildroot-custom ./buildroot-$BUILD_ROOT_RELEASE/
 cd buildroot-$BUILD_ROOT_RELEASE
 
-export BR2_CCACHE_DIR="~/br-cache/ccache"
-export BR2_DL_DIR="~/br-cache/dl"
+export BR2_CCACHE_DIR=${HOME}/br-cache/ccache
+export BR2_DL_DIR="${HOME}/br-cache/dl"
 
 # Build our defconfig.
 make BR2_EXTERNAL=buildroot-custom now_defconfig
