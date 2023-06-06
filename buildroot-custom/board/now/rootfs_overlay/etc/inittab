@@ -32,6 +32,9 @@ ttyS1::respawn:-/bin/sh
 # Example how to put a getty on a modem line.
 #::respawn:/sbin/getty 57600 ttyS2
 
+# Run command on specific serial.
+# ttyS1::respawn:-/usr/bin/node /opt/now/now-repl.js
+
 # Stuff to do before rebooting
 ::ctrlaltdel:/sbin/reboot -f
 #::ctrlaltdel:/sbin/swapoff
