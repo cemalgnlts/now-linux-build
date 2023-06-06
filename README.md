@@ -16,6 +16,9 @@ A custom [Buildroot](https://buildroot.org/) config for [Now](https://github.com
                 +-- profile     # To customize our individual work environment
             +-- opt/
                 +--- now/       # Special files for Now
+            +-- usr/
+                +-- local/
+                    +-- lib/    # For 3rd party libraries (nodejs)
     +-- configs/
         +-- now_defconfig       # Our custom buildroot config
     +-- Config.in               # empty, but required https://buildroot.org/downloads/manual/manual.html#outside-br-custom
@@ -23,3 +26,9 @@ A custom [Buildroot](https://buildroot.org/) config for [Now](https://github.com
     +-- external.desc           # our board config for make
     +-- build.sh                # entrypoint for build
 ```
+
+## Credits
+It was created using these sources:
+- [humphd/browser-vm](https://github.com/humphd/browser-vm).
+- [SkiffOS/v86](https://github.com/skiffos/SkiffOS/blob/master/configs/browser/v86).
+- [v86/copy](https://github.com/copy/v86/issues/725#issuecomment-1307807275).

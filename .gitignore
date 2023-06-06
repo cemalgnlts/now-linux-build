@@ -1,2 +1,1 @@
-buildroot-custom/board/rootfs_overlay/usr/local/lib/*
-dist/
+/buildroot-custom/board/rootfs_overlay/usr/local/lib/nodejs
