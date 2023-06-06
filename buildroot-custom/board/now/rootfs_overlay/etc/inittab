@@ -24,10 +24,10 @@ tty4::askfirst:-/bin/sh
 
 # Example of how to put a getty on a serial line (for a terminal)
 #
-#ttyS0::respawn:-/bin/sh
-#ttyS1::respawn:-/bin/sh
-::respawn:/sbin/getty -a root -L ttyS0 9600 vt100
-::respawn:/sbin/getty -a root -L ttyS1 9600 vt100
+ttyS0::respawn:-/bin/sh
+ttyS1::respawn:-/bin/sh
+#::respawn:/sbin/getty -n -L ttyS0 9600 vt100
+#::respawn:/sbin/getty -n -L ttyS1 9600 vt100
 #
 # Example how to put a getty on a modem line.
 #::respawn:/sbin/getty 57600 ttyS2
