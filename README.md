@@ -7,7 +7,7 @@ A custom [Buildroot](https://buildroot.org/) config for [Now](https://github.com
 ## Folder Structure
 ```
 +-- board/
-    +-- v86
+    +-- now
         +-- linux.config        # Our custom Linux kernel config
         +-- rootfs_overlay/     # Overrides for files in the root filesystem
             +-- etc/
