@@ -12,7 +12,7 @@ then
     cd "$NODE_LIB_DIR"
 
     # Download nodejs
-    wget -q "https://nodejs.org/download/release/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x86.tar.xz"
+    wget -q "https://unofficial-builds.nodejs.org/download/release/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x86.tar.xz"
 
     # Unzip the binary archive
     tar -axf "node-$NODEJS_VERSION-linux-x86.tar.xz"
@@ -47,16 +47,6 @@ cd buildroot-$BUILD_ROOT_RELEASE
 # Buildroot cache
 export BR2_CCACHE_DIR=${HOME}/br-cache/ccache
 export BR2_DL_DIR=${HOME}/br-cache/dl
-
-if [ ! -d $BR2_CCACHE_DIR ]
-then
-    mkdir -p $BR2_CCACHE_DIR
-    mkdir -p $BR2_DL_DIR
-
-    echo "[Buildroot] Make cache folder: ${HOME}/br-cache/{ccache,dl}"
-else
-    echo '[Buildroot] Cache folder exists.'
-fi
 
 # Build our defconfig.
 make BR2_EXTERNAL=buildroot-custom now_defconfig
