@@ -22,6 +22,9 @@ const emulator = new V86Starter({
 let data = "";
 let isBooted = false;
 
+// Terminate process after 2.5 minutes.
+let tid = setTimeout(() => process.exit(1), 2.5 * 60 * 1000);
+
 emulator.add_listener("serial0-output-char", async function serailOutputChar(chr) {
     data += chr;
 
@@ -35,6 +38,7 @@ emulator.add_listener("serial0-output-char", async function serailOutputChar(chr
         const state = await emulator.save_state();
         await fs.promises.writeFile("./linux_state.bin", Buffer.from(state));
         
+        clearTimeout(tid);
         process.exit();
     }
 });
