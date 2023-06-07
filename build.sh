@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-NODEJS_VERSION='v18.16.0'
+NODEJS_VERSION='v18.4.0'
 BUILD_ROOT_RELEASE='2023.02'
 
 # Create nodejs library directory if not exists
@@ -12,12 +12,12 @@ then
     cd "$NODE_LIB_DIR"
 
     # Download nodejs
-    wget -q "https://nodejs.org/download/release/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x64.tar.xz"
+    wget -q "https://nodejs.org/download/release/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x86.tar.xz"
 
     # Unzip the binary archive
-    tar -axf "node-$NODEJS_VERSION-linux-x64.tar.xz"
-    mv node-$NODEJS_VERSION-linux-x64/{bin,include,lib} .
-    rm -rf "node-$NODEJS_VERSION-linux-x64" "node-$NODEJS_VERSION-linux-x64.tar.xz"
+    tar -axf "node-$NODEJS_VERSION-linux-x86.tar.xz"
+    mv node-$NODEJS_VERSION-linux-x86/{bin,include,lib} .
+    rm -rf "node-$NODEJS_VERSION-linux-x86" "node-$NODEJS_VERSION-linux-x86.tar.xz"
 
     cd -
 
