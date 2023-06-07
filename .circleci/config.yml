@@ -46,6 +46,10 @@ jobs:
       - store_artifacts:
           path: now/linux_state.bin.zst
           destination: linux_state.bin.zst
+      
+      - store_artifacts:
+          path: /home/circleci/project/buildroot-2023.02/output/images/bzImage
+          detination: bzImage
 
 workflows:
   build-workflow:
