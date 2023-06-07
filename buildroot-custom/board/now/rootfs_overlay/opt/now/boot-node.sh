@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ITERATION=15
+ITERATION=30
 echo "Node initializing..."
 
 for i in `seq $ITERATION`
