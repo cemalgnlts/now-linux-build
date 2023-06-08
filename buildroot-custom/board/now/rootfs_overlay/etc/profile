@@ -1,8 +1,9 @@
 #!/bin/sh
 
-export PATH="$PATH:/usr/local/lib/nodejs/bin:/usr/local/lib/yarn/bin"
+# export PATH="$PATH:/usr/local/lib/nodejs/bin"
 
 export HISTFILE='/tmp/.ash_history'
+export NODE_NO_READLINE=1
 
 PS1='\W$ '
 HOME='/root/'

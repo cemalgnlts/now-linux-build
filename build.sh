@@ -22,13 +22,7 @@ then
 
     echo "Purge npm, npx, corepack"
     rm bin/{npm,npx,corepack}
-    rm -rf lib/node_modules/{npm,coprepack}
-
-    echo '[Nodejs] Download and install yarn'
-    wget -q "https://github.com/yarnpkg/yarn/releases/download/$YARN_VERSION/yarn-$YARN_VERSION.tar.gz"
-    tar -axf "yarn-$YARN_VERSION.tar.gz"
-    mkdir yarn
-    mv "yarn-$YARN_VERSION/{bin,lib}" yarn/
+    rm -rf lib/node_modules/{npm,corepack}
 
     cd -
 
