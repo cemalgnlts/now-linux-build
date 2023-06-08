@@ -1,14 +1,16 @@
 #!/bin/sh
 
+export PATH="$PATH:/usr/local/lib/nodejs/bin:/usr/local/lib/yarn/bin"
+
 export HISTFILE='/tmp/.ash_history'
 
 PS1='\W$ '
 HOME='/root/'
+
+cd ~
 
 echo
 echo "|=================|"
 echo "| =  Now Ready  = |"
 echo "|=================|"
 echo
-
-cd $HOME

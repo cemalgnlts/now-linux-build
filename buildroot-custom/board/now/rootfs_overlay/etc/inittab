@@ -4,9 +4,8 @@
 
 # Startup the system
 ::sysinit:/bin/mount -a
-::sysinit:/bin/ln -s /usr/local/lib/nodejs/bin/node /usr/bin/node
-::sysinit:/bin/ln -s /usr/local/lib/nodejs/bin/npm /usr/bin/npm
-::sysinit:/bin/ln -s /usr/local/lib/nodejs/bin/npx /usr/bin/npx
+# ::sysinit:/bin/ln -s /usr/local/lib/nodejs/bin/node /usr/bin/node
+# ::sysinit:/bin/ln -s /usr/local/lib/yarn/bin/yarn /usr/bin/yarn
 
 # /bin/sh invocations on selected ttys
 #

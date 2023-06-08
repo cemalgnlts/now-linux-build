@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-NODEJS_VERSION='v18.4.0'
 BUILD_ROOT_RELEASE='2023.02'
+NODEJS_VERSION='v18.4.0'
+YARN_VERSION='v1.22.19'
 
 # Create nodejs library directory if not exists
 NODE_LIB_DIR='buildroot-custom/board/now/rootfs_overlay/usr/local/lib/nodejs'
@@ -18,6 +19,16 @@ then
     tar -axf "node-$NODEJS_VERSION-linux-x86.tar.xz"
     mv node-$NODEJS_VERSION-linux-x86/{bin,include,lib} .
     rm -rf "node-$NODEJS_VERSION-linux-x86" "node-$NODEJS_VERSION-linux-x86.tar.xz"
+
+    echo "Purge npm, npx, corepack"
+    rm bin/{npm,npx,corepack}
+    rm -rf lib/node_modules/{npm,coprepack}
+
+    echo '[Nodejs] Download and install yarn'
+    wget -q "https://github.com/yarnpkg/yarn/releases/download/$YARN_VERSION/yarn-$YARN_VERSION.tar.gz"
+    tar -axf "yarn-$YARN_VERSION.tar.gz"
+    mkdir yarn
+    mv "yarn-$YARN_VERSION/{bin,lib}" yarn/
 
     cd -
 
