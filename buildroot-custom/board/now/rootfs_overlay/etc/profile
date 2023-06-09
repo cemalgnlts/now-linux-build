@@ -3,7 +3,7 @@
 # export PATH="$PATH:/usr/local/lib/nodejs/bin"
 
 export HISTFILE='/tmp/.ash_history'
-export NODE_NO_READLINE=1
+export NODE_HIST_FILE=""
 
 PS1='\W$ '
 HOME='/root/'
