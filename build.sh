@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 BUILD_ROOT_RELEASE='2023.02'
-NODEJS_VERSION='v18.4.0'
-YARN_VERSION='v1.22.19'
+NODEJS_VERSION='v17.9.1'
 
 # Create nodejs library directory if not exists
 NODE_LIB_DIR='buildroot-custom/board/now/rootfs_overlay/usr/local/lib/nodejs'
