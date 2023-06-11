@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 BUILD_ROOT_RELEASE='2023.02'
 NODEJS_VERSION='v17.9.1'
 
