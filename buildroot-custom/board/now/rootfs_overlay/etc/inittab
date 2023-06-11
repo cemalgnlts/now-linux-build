@@ -3,7 +3,6 @@
 #::sysinit:/etc/boot.sh
 
 # Startup the system
-::sysinit:/bin/mount -o remount,rw /
 ::sysinit:/bin/mount -a
 ::sysinit:/bin/ln -s /usr/local/lib/nodejs/bin/node /usr/bin/node
 
@@ -33,7 +32,7 @@ ttyS1::respawn:-/bin/sh
 
 # Run command on specific serial.
 ttyS0::sysinit:/bin/stty cols 80 rows 25
-# ttyS1::respawn:-/usr/bin/node /opt/now/now-repl.js
+#ttyS1::respawn:-/usr/bin/node /opt/now/now-repl.js
 
 # Stuff to do before rebooting
 ::ctrlaltdel:/sbin/reboot -f
