@@ -9,7 +9,7 @@
 # /bin/sh invocations on selected ttys
 #
 # Start an "respawn" shell on the console (whatever that may be)
-::respawn:-/bin/sh
+#::respawn:-/bin/sh
 # Start an "askfirst" shell on /dev/tty2-4
 #tty2::askfirst:-/bin/sh
 #tty3::askfirst:-/bin/sh
@@ -23,7 +23,7 @@
 # Example of how to put a getty on a serial line (for a terminal)
 #
 ttyS0::respawn:-/bin/sh
-#ttyS1::respawn:-/bin/sh
+ttyS1::respawn:-/bin/sh
 #::respawn:/sbin/getty -n -L ttyS0 9600 vt100
 #::respawn:/sbin/getty -n -L ttyS1 9600 vt100
 #
@@ -31,7 +31,7 @@ ttyS0::respawn:-/bin/sh
 #::respawn:/sbin/getty 57600 ttyS2
 
 # Run command on specific serial.
-#ttyS0::sysinit:/bin/stty cols 80 rows 25
+ttyS0::sysinit:/bin/stty cols 80 rows 25
 #ttyS1::respawn:-/usr/bin/node /opt/now/now-repl.js
 
 # Stuff to do before rebooting
