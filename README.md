@@ -32,3 +32,8 @@ It was created using these sources:
 - [humphd/browser-vm](https://github.com/humphd/browser-vm).
 - [SkiffOS/v86](https://github.com/skiffos/SkiffOS/blob/master/configs/browser/v86).
 - [v86/copy](https://github.com/copy/v86/issues/725#issuecomment-1307807275).
+
+## License
+Buildroot itself is an open source software, released under the GNU General Public License, version 2 or (at your option) any later version, with the exception of the package patches detailed below.
+
+See also the [Buildroot license notice](https://buildroot.org/downloads/manual/manual.html#legal-info-buildroot) for more nuances about the meaning of this license.
