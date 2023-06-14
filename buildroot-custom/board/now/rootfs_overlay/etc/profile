@@ -1,14 +1,23 @@
 #!/bin/sh
 
-# export PATH="$PATH:/usr/local/lib/nodejs/bin"
-
 export HISTFILE='/tmp/.ash_history'
-export NODE_HIST_FILE=""
 
-PS1='\W$ '
-HOME='/root/'
+export LANG=en_US.UTF-8
+export PS1='\W$ '
+export HOME='/root/'
+
+stty cols 21
+stty 38400
+
+# export PATH="$PATH:/usr/local/lib/nodejs/bin"
+export NODE_REPL_HISTORY=""
+export NODE_SKIP_PLATFORM_CHECK=1
+export NODE_PENDING_DEPRECATION=1
+export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 cd ~
+
+mkdir .now
 
 echo
 echo "|=================|"
