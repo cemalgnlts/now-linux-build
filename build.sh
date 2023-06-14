@@ -21,9 +21,9 @@ then
     mv node-$NODEJS_VERSION-linux-x86/{bin,include,lib} .
     rm -rf "node-$NODEJS_VERSION-linux-x86" "node-$NODEJS_VERSION-linux-x86.tar.xz"
 
-    #echo "Purge npm, npx, corepack"
-    #rm bin/{npm,npx,corepack}
-    #rm -rf lib/node_modules/{npm,corepack}
+    echo "Purge npm, npx, corepack"
+    rm bin/{npm,npx,corepack}
+    rm -rf lib/node_modules/{npm,corepack}
 
     cd -
 
