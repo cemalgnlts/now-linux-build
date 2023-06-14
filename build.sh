@@ -3,7 +3,7 @@
 set -e
 
 BUILD_ROOT_RELEASE='2023.02'
-NODEJS_VERSION='v17.9.1'
+NODEJS_VERSION='v16.20.0'
 
 # Create nodejs library directory if not exists
 NODE_LIB_DIR='buildroot-custom/board/now/rootfs_overlay/usr/local/lib/nodejs'
@@ -21,9 +21,9 @@ then
     mv node-$NODEJS_VERSION-linux-x86/{bin,include,lib} .
     rm -rf "node-$NODEJS_VERSION-linux-x86" "node-$NODEJS_VERSION-linux-x86.tar.xz"
 
-    echo "Purge npm, npx, corepack"
-    rm bin/{npm,npx,corepack}
-    rm -rf lib/node_modules/{npm,corepack}
+    #echo "Purge npm, npx, corepack"
+    #rm bin/{npm,npx,corepack}
+    #rm -rf lib/node_modules/{npm,corepack}
 
     cd -
 
