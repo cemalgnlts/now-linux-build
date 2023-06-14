@@ -9,7 +9,7 @@ jobs:
       
       - restore_cache:
           keys:
-            - buildroot-cache-v17
+            - buildroot-cache-v18
 
       - run:
           name: "Start Building"
@@ -35,7 +35,7 @@ jobs:
             zstd --ultra -22 now/linux_state.bin -o now/linux_state.bin.zst
 
       - save_cache:
-          key: buildroot-cache-v17
+          key: buildroot-cache-v18
           paths:
             - "~/br-cache"
 
