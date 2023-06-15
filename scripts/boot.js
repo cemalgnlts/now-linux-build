@@ -11,12 +11,18 @@ const linux = readfile("./linux.iso");
 console.log("Now booting, please stand by ...");
 
 const emulator = new V86Starter({
-    memory_size: 512 * 1024 * 1024,
     bios: { buffer: bios },
     cdrom: { buffer: linux },
-    autostart: true,
+    memory_size: 512 * 1024 * 1024,
+    wasm_path: wasmObjectUrl,
     disable_keyboard: true,
+    disable_speaker: true,
     disable_mouse: true,
+    is_graphical: false,
+    autostart: true,
+    fastboot: true,
+    filesystem: {},
+    uart1: true
 });
 
 let data = "";
@@ -37,7 +43,7 @@ emulator.add_listener("serial0-output-char", async function serailOutputChar(chr
         isBooted = true;
         data = "";
         emulator.serial0_send('. /opt/now/boot-node.sh\n');
-        emulator.serial_send_bytes(1, "node /opt/now/now-repl.js\n");
+        emulator.serial_send_bytes(1, "node --experimental-fetch now-repl.js\n");
     } else if (isBooted && data.endsWith("root$")) {
         const state = await emulator.save_state();
         await fs.promises.writeFile("./linux_state.bin", Buffer.from(state));

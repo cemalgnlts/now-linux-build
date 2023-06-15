@@ -2,7 +2,7 @@
 
 export HISTFILE='/tmp/.ash_history'
 
-export LANG=en_US.UTF-8
+export LANG='en_US.UTF-8'
 export PS1='\W$ '
 export HOME='/root/'
 
@@ -13,10 +13,9 @@ export NODE_REPL_HISTORY=""
 export NODE_SKIP_PLATFORM_CHECK=1
 export NODE_PENDING_DEPRECATION=1
 export NODE_TLS_REJECT_UNAUTHORIZED=0
+export NODE_NO_WARNINGS=1
 
 cd ~
-
-mkdir .now
 
 echo
 echo "|=================|"

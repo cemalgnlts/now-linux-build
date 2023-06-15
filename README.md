@@ -10,6 +10,7 @@ A custom [Buildroot](https://buildroot.org/) config for [Now](https://github.com
     +-- now
         +-- linux.config        # Our custom Linux kernel config
         +-- rootfs_overlay/     # Overrides for files in the root filesystem
+            +-- root/           # User home folder
             +-- etc/
                 +-- inittab     # We setup a ttyS0 console terminal to root
                 +-- fstab       # We auto-mount the Plan 9 Filer filesystem to /root
