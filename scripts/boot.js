@@ -11,10 +11,9 @@ const linux = readfile("./linux.iso");
 console.log("Now booting, please stand by ...");
 
 const emulator = new V86Starter({
-    bios: { buffer: bios },
-    cdrom: { buffer: linux },
     memory_size: 512 * 1024 * 1024,
-    wasm_path: wasmObjectUrl,
+    cdrom: { buffer: linux },
+    bios: { buffer: bios },
     disable_keyboard: true,
     disable_speaker: true,
     disable_mouse: true,
