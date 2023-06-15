@@ -19,20 +19,20 @@ jobs:
       - run:
           name: "Boost Node.js and Create State File"
           command: |
-            cp 'buildroot-2023.02/output/images/rootfs.iso9660' now/linux.iso
-            cd now
+            cp 'buildroot-2023.02/output/images/rootfs.iso9660' scripts/linux.iso
+            cd scripts
             echo "lib86, v86wasm, seabios.bin downloading..."
             wget -q 'https://github.com/copy/v86/releases/download/latest/libv86.js'
             wget -q 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
             wget -q 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
-            node index.js
+            node boot.js
 
       - run:
           name: "Compress State File"
           when: on_success
           command: |
             sudo apt install zstd --allow-change-held-packages
-            zstd --ultra -22 now/linux_state.bin -o now/linux_state.bin.zst
+            zstd --ultra -22 scripts/linux_state.bin -o scripts/linux_state.bin.zst
 
       - save_cache:
           key: buildroot-cache-v18
@@ -40,11 +40,11 @@ jobs:
             - "~/br-cache"
 
       - store_artifacts:
-          path: now/linux.iso
+          path: scripts/linux.iso
           destination: linux.iso
       
       - store_artifacts:
-          path: now/linux_state.bin.zst
+          path: scripts/linux_state.bin.zst
           destination: linux_state.bin.zst
       
       - store_artifacts:
