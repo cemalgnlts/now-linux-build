@@ -47,7 +47,7 @@ emulator.add_listener("serial0-output-char", async function serailOutputChar(chr
     if (isBooted === false && data.endsWith("root$")) {
         isBooted = true;
         data = "";
-        emulator.serial1_send("node --experimental-fetch now-repl.js\n");
+        emulator.serial1_send("node --experimental-fetch /opt/now/repl.js\n");
         emulator.serial0_send('. /opt/now/boot-node.sh\n');
     } else if (isBooted && data.endsWith("root$")) {
         const state = await emulator.save_state();

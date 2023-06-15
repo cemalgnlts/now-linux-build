@@ -9,6 +9,8 @@ const stdOutStream = fs.createWriteStream(STD_OUT_PATH);
 const stdErrStream = fs.createWriteStream(STD_ERR_PATH);
 globalThis.console = new console.Console(stdOutStream, stdErrStream);
 
+process.chdir("/root");
+
 const writer = output => {
 	console.log(util.inspect(output));
 	
