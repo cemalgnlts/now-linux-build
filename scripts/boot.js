@@ -33,20 +33,26 @@ let tid = setTimeout(() => {
     process.exit(1);
 }, 3 * 60 * 1000);
 
+emulator.serial1_send = data => {
+    for (let i = 0; i < data.length; i++) {
+        emulator.bus.send("serial1-input", data.charCodeAt(i));
+    }
+};
+
 emulator.add_listener("serial0-output-char", async function serailOutputChar(chr) {
     data += chr;
 
-    if(isBooted === true) process.stdout.write(chr);
+    if (isBooted === true) process.stdout.write(chr);
 
     if (isBooted === false && data.endsWith("root$")) {
         isBooted = true;
         data = "";
+        emulator.serial1_send("node --experimental-fetch now-repl.js\n");
         emulator.serial0_send('. /opt/now/boot-node.sh\n');
-        emulator.serial_send_bytes(1, "node --experimental-fetch now-repl.js\n");
     } else if (isBooted && data.endsWith("root$")) {
         const state = await emulator.save_state();
         await fs.promises.writeFile("./linux_state.bin", Buffer.from(state));
-        
+
         clearTimeout(tid);
         process.exit();
     }
