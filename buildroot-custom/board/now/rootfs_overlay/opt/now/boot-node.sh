@@ -1,10 +1,10 @@
 #!/bin/sh
 
-umount proc
-umount sys
-umount run
+umount /proc
+umount /sys
+umount /run
 
-rm -rf /media /etc /proc /mnt /sys /run
+rm -rf /media /etc /proc /mnt /sys /run /var
 rm -r /lib32 /init
 
 ITERATION=30
