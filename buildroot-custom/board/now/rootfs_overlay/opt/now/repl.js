@@ -2,6 +2,7 @@ const repl = require("repl");
 const fs = require("fs");
 const util = require("util");
 
+fs.mkdirSync("/root/.now");
 const STD_OUT_PATH = "/root/.now/stdout";
 const STD_ERR_PATH = "/root/.now/stderr";
 
