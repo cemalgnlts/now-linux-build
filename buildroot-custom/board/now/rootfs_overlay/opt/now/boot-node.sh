@@ -7,7 +7,7 @@ umount /run
 rm -rf /media /etc /proc /mnt /sys /run /var
 rm -r /lib32 /init
 
-ITERATION=15
+ITERATION=10
 echo "Node initializing..."
 
 for i in `seq $ITERATION`

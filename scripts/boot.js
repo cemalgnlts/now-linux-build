@@ -1,6 +1,10 @@
 const fs = require("fs");
 const V86Starter = require("./libv86.js").V86Starter;
 
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function readfile(path) {
     return new Uint8Array(fs.readFileSync(path)).buffer;
 }
@@ -50,6 +54,9 @@ emulator.add_listener("serial0-output-char", async function serailOutputChar(chr
         emulator.serial1_send("node --experimental-fetch /opt/now/repl.js\n");
         emulator.serial0_send(". /opt/now/boot-node.sh\n");
     } else if (isBooted && data.endsWith("root$")) {
+        emulator.serial1_send(".run /opt/now/hello.js\n");
+        await wait(3000);
+
         const state = await emulator.save_state();
         await fs.promises.writeFile("./linux_state.bin", Buffer.from(state));
 

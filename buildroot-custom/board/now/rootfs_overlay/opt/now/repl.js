@@ -1,4 +1,4 @@
-const { createWriteStream, readFileSync } = require("fs");
+const { createWriteStream, readFileSync, truncateSync } = require("fs");
 const { inspect } = require("util");
 const repl = require("repl");
 
@@ -37,6 +37,8 @@ replServer.defineCommand("run", {
 	help: "Run code",
 	action(file) {
 		this.clearBufferedCommand();
+		truncateSync(STD_OUT_PATH);
+		truncateSync(STD_ERR_PATH);
 
 		try {
 			eval(readFileSync(file, { encoding: "utf8", flag: "r" }));
