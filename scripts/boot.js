@@ -48,7 +48,7 @@ emulator.add_listener("serial0-output-char", async function serailOutputChar(chr
         isBooted = true;
         data = "";
         emulator.serial1_send("node --experimental-fetch /opt/now/repl.js\n");
-        emulator.serial0_send('. /opt/now/boot-node.sh\n');
+        emulator.serial0_send(". /opt/now/boot-node.sh\n");
     } else if (isBooted && data.endsWith("root$")) {
         const state = await emulator.save_state();
         await fs.promises.writeFile("./linux_state.bin", Buffer.from(state));

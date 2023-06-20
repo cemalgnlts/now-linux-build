@@ -1,19 +1,18 @@
+const { createWriteStream, readFileSync } = require("fs");
+const { inspect } = require("util");
 const repl = require("repl");
-const fs = require("fs");
-const util = require("util");
 
-fs.mkdirSync("/root/.now");
-const STD_OUT_PATH = "/root/.now/stdout";
-const STD_ERR_PATH = "/root/.now/stderr";
+const STD_OUT_PATH = "/root/.stdout";
+const STD_ERR_PATH = "/root/.stderr";
 
-const stdOutStream = fs.createWriteStream(STD_OUT_PATH);
-const stdErrStream = fs.createWriteStream(STD_ERR_PATH);
+const stdOutStream = createWriteStream(STD_OUT_PATH);
+const stdErrStream = createWriteStream(STD_ERR_PATH);
 globalThis.console = new console.Console(stdOutStream, stdErrStream);
 
 process.chdir("/root");
 
 const writer = output => {
-	console.log(util.inspect(output));
+	console.log(inspect(output));
 	
 	return undefined;
 };
@@ -40,7 +39,7 @@ replServer.defineCommand("run", {
 		this.clearBufferedCommand();
 
 		try {
-			eval(fs.readFileSync(file, { encoding: "utf8", flag: "r" }));
+			eval(readFileSync(file, { encoding: "utf8", flag: "r" }));
 		} catch (err) {
 			console.error(err);
 		}
@@ -48,4 +47,3 @@ replServer.defineCommand("run", {
 		this.displayPrompt();
 	}
 });
-

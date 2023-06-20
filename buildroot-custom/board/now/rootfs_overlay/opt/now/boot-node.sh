@@ -7,12 +7,12 @@ umount /run
 rm -rf /media /etc /proc /mnt /sys /run /var
 rm -r /lib32 /init
 
-ITERATION=30
+ITERATION=15
 echo "Node initializing..."
 
 for i in `seq $ITERATION`
 do
-    time -f "[$i/$ITERATION] - %es" node /opt/now/hello.js > /dev/null
+    time -f "[$i/$ITERATION] - %es" node -e 'console.log("Hello World")' > /dev/null
 done
 
 rm -rf /dev
