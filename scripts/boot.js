@@ -16,7 +16,6 @@ console.log("Now booting, please stand by ...");
 
 const emulator = new V86Starter({
     memory_size: 512 * 1024 * 1024,
-    network_relay_url: "wss://relay.widgetry.org/",
     cdrom: { buffer: linux },
     bios: { buffer: bios },
     disable_keyboard: true,
