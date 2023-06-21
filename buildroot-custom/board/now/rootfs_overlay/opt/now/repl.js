@@ -37,6 +37,8 @@ replServer.defineCommand("run", {
 	help: "Run code",
 	action(file) {
 		this.clearBufferedCommand();
+		replServer.commands.clear.action.apply(this);
+
 		truncateSync(STD_OUT_PATH);
 		truncateSync(STD_ERR_PATH);
 
