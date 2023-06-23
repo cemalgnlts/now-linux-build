@@ -39,11 +39,9 @@ echo '[Java] downloading...'
 mkdir -p "$JAVA_LIB_DIR"
 cd "$JAVA_LIB_DIR"
 
-wget 'https://javadl.oracle.com/webapps/download/AutoDL?BundleId=248231_ce59cff5c23f4e2eaf4e778a117d4c5b'
-pwd
-ls
+wget -q 'https://javadl.oracle.com/webapps/download/AutoDL?BundleId=248231_ce59cff5c23f4e2eaf4e778a117d4c5b' -O 'jre-8u371-linux-i586.tar.gz'
 tar axf 'jre-8u371-linux-i586.tar.gz'
-rm -rf 'jre-8u371-linux-i586.tar.gz'
+rm -f 'jre-8u371-linux-i586.tar.gz'
 
 cd -
 ### Experimental ###
