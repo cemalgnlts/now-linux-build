@@ -35,7 +35,7 @@ let isBooted = false;
 let tid = setTimeout(() => {
     console.error("Time out.");
     process.exit(1);
-}, 3 * 60 * 1000);
+}, 5 * 60 * 1000);
 
 emulator.serial1_send = data => {
     for (let i = 0; i < data.length; i++) {
