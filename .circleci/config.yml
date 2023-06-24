@@ -14,6 +14,7 @@ jobs:
       - run:
           name: "Start Building"
           command: |
+            sudo apt install --allow-change-held-packages gcc-multilib g++-multilib
             ./build.sh
       
       - run:
@@ -30,7 +31,7 @@ jobs:
           name: "Compress State File"
           when: on_success
           command: |
-            sudo apt install zstd --allow-change-held-packages
+            sudo apt install --allow-change-held-packages zstd
             zstd --ultra -22 scripts/linux_state.bin -o scripts/linux_state.bin.zst
 
       - save_cache:
