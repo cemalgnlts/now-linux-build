@@ -14,7 +14,7 @@ jobs:
       - run:
           name: "Start Building"
           command: |
-            sudo apt update && apt upgrade -y
+            sudo apt update && sudo apt upgrade -y
             sudo apt install --allow-change-held-packages gcc-multilib
             ./build.sh
       
