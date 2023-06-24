@@ -14,6 +14,9 @@ jobs:
       - run:
           name: "Start Building"
           command: |
+            sudo apt-update
+            DEBIAN_FRONTEND=noninteractive sudo apt-upgrade -y --allow-downgrades --allow-remove-essential --allow-change-held-packages
+            sudo apt install gcc-multilib -y --allow-downgrades --allow-remove-essential --allow-change-held-packages
             ./build.sh
       
       - run:
