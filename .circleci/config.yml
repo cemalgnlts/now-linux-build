@@ -9,14 +9,11 @@ jobs:
       
       - restore_cache:
           keys:
-            - buildroot-cache-v18
+            - buildroot-cache-v19
 
       - run:
           name: "Start Building"
           command: |
-            sudo apt update
-            DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
-            sudo apt install gcc-multilib g++-multilib -y
             ./build.sh
       
       - run:
@@ -37,7 +34,7 @@ jobs:
             zstd --ultra -22 scripts/linux_state.bin -o scripts/linux_state.bin.zst
 
       - save_cache:
-          key: buildroot-cache-v18
+          key: buildroot-cache-v19
           paths:
             - "~/br-cache"
 
