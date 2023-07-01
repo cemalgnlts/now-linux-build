@@ -1,0 +1,1 @@
+nodejs_OVERRIDE_SRCDIR="$(BR2_EXTERNAL_now_PATH)/package/nodejs"
