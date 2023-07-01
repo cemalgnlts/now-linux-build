@@ -57,4 +57,4 @@ export BR2_DL_DIR=${HOME}/br-cache/dl
 
 # Build our defconfig.
 make BR2_EXTERNAL=buildroot-custom now_defconfig
-make -j$(nproc)
+make
