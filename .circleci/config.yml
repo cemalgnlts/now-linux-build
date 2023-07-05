@@ -16,22 +16,22 @@ jobs:
           command: |
             ./build.sh
       
-      - run:
-          name: "Boost Node.js and Create State File"
-          command: |
-            cp 'buildroot-2023.02/output/images/rootfs.iso9660' scripts/linux.iso
-            cd scripts
-            echo "v86wasm, seabios.bin downloading..."
-            wget -q 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
-            wget -q 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
-            node boot.js
+#      - run:
+#          name: "Boost Node.js and Create State File"
+#          command: |
+#            cp 'buildroot-2023.02/output/images/rootfs.iso9660' scripts/linux.iso
+#            cd scripts
+#            echo "v86wasm, seabios.bin downloading..."
+#            wget -q 'https://github.com/copy/v86/releases/download/latest/v86.wasm'
+#            wget -q 'https://github.com/copy/v86/raw/master/bios/seabios.bin'
+#            node boot.js
 
-      - run:
-          name: "Compress State File"
-          when: on_success
-          command: |
-            sudo apt install --allow-change-held-packages zstd
-            zstd --ultra -22 scripts/linux_state.bin -o scripts/linux_state.bin.zst
+#      - run:
+#          name: "Compress State File"
+#          when: on_success
+#          command: |
+#            sudo apt install --allow-change-held-packages zstd
+#            zstd --ultra -22 scripts/linux_state.bin -o scripts/linux_state.bin.zst
 
       - save_cache:
           key: buildroot-cache-v19
